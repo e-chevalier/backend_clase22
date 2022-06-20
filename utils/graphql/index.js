@@ -133,6 +133,28 @@ const useGraphql = (app) => {
 
 }
 
+/*
+EXAMPLES QUERYS
+
+GETPRODUCTS
+127.0.0.1:8080/graphql?query={getProducts{id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+GETPRODUCTS KEY VALUE
+127.0.0.1:8080/graphql?query={getProducts(key: "id", value: "2"){id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+GET PRODUCT BY ID
+127.0.0.1:8080/graphql?query={getProduct(id: 48){id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+CREATE PROD
+127.0.0.1:8080/graphql?query=mutation{createProduct(data: { title: "Pera", description: "Pera dulce y fresca para comer en este verano.", code: "SummerFruit", thumbnail: "https://cdn3.iconfinder.com/data/icons/fruits-52/150/icon_fruit_abacate-128.png", price: "250", stock: "59", qty: "0"}){id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+DELETE PRODUCT
+127.0.0.1:8080/graphql?query=mutation{deleteProduct(id: 54){id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+UPDATE PROD
+127.0.0.1:8080/graphql?query=mutation{updateProduct(id: 47, data: { title: "Pera LOCA3", description: "Pera dulce y fresca", code: "SummerFruit2", price: "666", stock: "99", qty: "1"}){id,title, price, description, thumbnail, timestamp, code, stock, qty}}
+
+*/
 
 export { useGraphql }
 
