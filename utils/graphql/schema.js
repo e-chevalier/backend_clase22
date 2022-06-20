@@ -1,4 +1,3 @@
-import { graphqlHTTP } from "express-graphql"
 import { buildSchema } from "graphql"
 
 const schema = buildSchema(`
@@ -15,21 +14,21 @@ const schema = buildSchema(`
     }
     input ProductInput {
         title: String
-        price: Float
+        price: String
         description: String
         thumbnail: String
         timestamp: String
         code: String
-        stock: Int
-        qty: Int
+        stock: String
+        qty: String
     }
     type Query {
         getProduct(id: ID!): Product
-        getProducts(campo: String, valor: String): [Product]
+        getProducts(key: String, value: String): [Product]
     }
     type Mutation {
-        createProduct(datos: ProductInput): Product
-        updateProduct(id: ID!, datos: ProductInput): Product
+        createProduct(data: ProductInput): Product
+        updateProduct(id: ID!, data: ProductInput): Product
         deleteProduct(id: ID!): Product
     }
 `)

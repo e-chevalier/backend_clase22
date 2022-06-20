@@ -14,6 +14,7 @@ import { serverPassport } from './utils/passport/passport.js'
 import os from 'os'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import { useGraphql } from './utils/graphql/index.js'
 
 // import twilio_config from './config/twilio.js'
 // import sendMessage from './utils/twilio/twilio.js'
@@ -33,6 +34,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(loggerMethodAndURLs)
 
 app.use('/uploads', express.static('uploads'))
+
+useGraphql(app);
 
 
 const httpServer = new HttpServer(app)
